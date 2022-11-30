@@ -1,0 +1,63 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+      - id: check-ast
+      - id: check-yaml
+        args:
+          - --unsafe
+      - id: check-toml
+      - id: check-json
+
+      - id: check-merge-conflict
+      - id: check-case-conflict
+
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+
+  - repo: https://github.com/ambv/black
+    rev: 22.10.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.138
+    hooks:
+      - id: ruff
+        args:
+          - --fix
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        args:
+          - --profile
+          - "black"
+          - --trailing-comma
+          - --use-parentheses
+          - --ensure-newline-before-comments
+          - --py 38
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.1.0
+    hooks:
+      - id: pyupgrade
+        args:
+          - --py38-plus
+          - --keep-runtime-typing
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.5.1
+    hooks:
+      - id: prettier
+        files: \.(md|yaml|yml)$
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.2
+    hooks:
+      - id: codespell
+        types_or: [python, markdown]
+        args:
+          - --check-filename
