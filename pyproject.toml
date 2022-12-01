@@ -9,6 +9,9 @@ repository = "https://github.com/MattiasMTS/advent2022"
 [tool.poetry.dependencies]
 python = ">=3.8, <4"
 pandas = "^1.5.2"
+pytest = ">=2.6.4"
+cffi = ">=0.0.1"
+support = {path = "support", develop = true}
 
 
 [tool.poetry.group.dev.dependencies]
