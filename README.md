@@ -28,8 +28,8 @@ inputs and submit code using the `aoc-` commands from the `./support/` package.
 
 Useful commands (when you are in a dayNN folder):
 
-- `pytest` - to test the given input/expected.
+- `pytest <path-to-file>` - to test the given input/expected.
 - `aoc-download-input` - fetch the input for that day into your input.txt file.
-- `aoc-submit --partN` - combine this with the pipe to echo the answer and submit it!
-- `python3 part1 input.txt` - to get the output from your implementation.
+- `aoc-submit --part <N>` - combine this with the pipe to echo the answer and submit it!
+- `python3 part1 input.txt` - to get the output from your implementation and see how fast it was!
 - `python3 part1 input.txt | aoc-submit --part 1` - example submit command.
