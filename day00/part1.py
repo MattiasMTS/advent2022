@@ -11,13 +11,6 @@ INPUT_TXT = os.path.join(os.path.dirname(__file__), "input.txt")
 
 
 def compute(s: str) -> int:
-    numbers = support.parse_numbers_split(s)
-    for _ in numbers:
-        pass
-
-    lines = s.splitlines()
-    for _ in lines:
-        pass
     # TODO: implement solution here!
     return 0
 
@@ -40,7 +33,7 @@ def main() -> int:
     parser.add_argument("data_file", nargs="?", default=INPUT_TXT)
     args = parser.parse_args()
 
-    with open(args.data_file) as f, support.timing():
+    with open(args.data_file) as f, support.timing():  # type: ignore
         print(compute(f.read()))
 
     return 0

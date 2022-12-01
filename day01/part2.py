@@ -21,15 +21,19 @@ INPUT_S = """\
 1000
 2000
 3000
+
 4000
+
 5000
 6000
+
 7000
 8000
 9000
+
 10000
 """
-EXPECTED = 45000
+EXPECTED = 45_000
 
 
 @pytest.mark.parametrize(
@@ -45,7 +49,7 @@ def main() -> int:
     parser.add_argument("data_file", nargs="?", default=INPUT_TXT)
     args = parser.parse_args()
 
-    with open(args.data_file) as f, support.timing():
+    with open(args.data_file) as f, support.timing():  # type: ignore
         print(compute(f.read()))
 
     return 0
