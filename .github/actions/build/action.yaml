@@ -1,0 +1,33 @@
+name: Build repo
+description: |
+  "Composite workflow to re-use cached poetry install."
+inputs:
+  python-version:
+    description: Python version used in setup-python.
+    required: false
+    default: 3.8
+  path:
+    description: Relative path against $GITHUB_WORKPSACE to set as working-directory.
+    required: false
+    default: "."
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Poetry
+      working-directory: ${{ inputs.path }}
+      run: |
+        pipx install poetry
+        poetry config virtualenvs.create false
+      shell: bash
+
+    - uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: "poetry"
+
+      working-directory: ${{ inputs.path }}
+      run: poetry install
+      shell: bash
